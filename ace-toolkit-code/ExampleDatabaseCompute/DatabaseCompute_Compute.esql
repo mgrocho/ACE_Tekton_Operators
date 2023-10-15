@@ -8,7 +8,9 @@ CREATE COMPUTE MODULE DatabaseCompute_Compute
 		DECLARE DBSchema CHARACTER 'DB2ADMIN';
 		DECLARE DBTable  CHARACTER 'EMPLOYEES';
 		--INSERT INTO Database.{DBSchema}.{DBTable} (PKEY, FIRSTNAME, LASTNAME, COUNTRY)	VALUES( MyRef.PrimaryKey, MyRef.FirstName, MyRef.LastName, MyRef.Country );
-		INSERT INTO Database.MYSCHEMA.EMPLOYEES (PKEY, FIRSTNAME, LASTNAME, COUNTRY)	VALUES( RAND()*100 , 'John' , 'Doe' , 'HR' );
+		--INSERT INTO Database.MYSCHEMA.EMPLOYEES (PKEY, FIRSTNAME, LASTNAME, COUNTRY)	VALUES( RAND()*100 , 'John' , 'Doe' , 'HR' );
+		INSERT INTO Database.{DBSchema}.{DBTable} (PKEY, FIRSTNAME, LASTNAME, COUNTRY)	VALUES( RAND()*100 , 'John' , 'Doe' , 'HR' );
+		
 		IF (SQLCODE = 0) THEN
             SET OutputRoot.JSON.Data.Result = 'A row was inserted into the database successfully.';
         ELSE

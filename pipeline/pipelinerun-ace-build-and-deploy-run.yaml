@@ -8,8 +8,15 @@ spec:
   pipelineRef:
     name: ace-build-and-deploy-pipeline
   serviceAccountName: pipeline
+  taskRunSpecs:
+    - pipelineTaskName: ace-generate-crs
+      taskPodTemplate:
+        securityContext:
+          fsGroup: 0
+          runAsGroup: 0
+          runAsUser: 0
   timeout: 0h15m0s
   workspaces:
     - name: git-source
       persistentVolumeClaim:
-        claimName: ace-demo-tekton
+        claimName: nexus-pvc

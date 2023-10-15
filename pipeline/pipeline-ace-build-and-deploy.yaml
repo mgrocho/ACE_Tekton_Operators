@@ -6,7 +6,7 @@ spec:
   params:
     - name: git-url
       description: The git repository URL to clone from
-      default: 'https://github.com/isalkovic/ACE_Tekton_Operators.git'
+      default: 'https://github.com/mgrocho/ACE_Tekton_Operators.git'
       type: string
     - name: git-revision
       description: Revision to checkout. (branch, tag, sha, ref, etc...)
@@ -18,7 +18,7 @@ spec:
       type: string
     - name: bar-version
       description: The version of the bar to be built, without the .bar extension - will be appended to bar name
-      default: '69'
+      default: '1'
       type: string
     - name: ace-toolkit-code-directory
       description: The base directory of the repository, containing ACE projects
@@ -30,15 +30,15 @@ spec:
       type: string
     - name: deployment-namespace
       description: The name of the Openshift namespace/project , where the integration server and configuration will be deployed
-      default: ace-demo-tekton
+      default: cp4i
       type: string
     - name: nexus-server-base-url
       description: The Base URL of the Nexus server where the bar file will be uploaded
-      default: http://nexus-route-ace-demo-tekton.apps.ocp12.tec.cz.ibm.com
+      default: http://nexus-route-cp4i.itzroks-662002gtx5-28b9zo-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-de.containers.appdomain.cloud
       type: string
     - name: nexus-repository-name
       description: The name of the Nexus repository, where the bar file will be uploaded
-      default: ace-demo-tekton
+      default: nexusrepo
       type: string
     - name: nexus-path
       description: The path of the Nexus repository, where the bar file will be uploaded, for example - "org/dept"
@@ -50,7 +50,7 @@ spec:
       type: string
     - name: nexus-upload-user-password
       description: The Nexus user's password (default for Nexus is "admin123")
-      default: admin123
+      default: c712b2c8-fbb7-4049-b2ff-336b5a6f3033
       type: string
   tasks:
     - name: fetch-from-git

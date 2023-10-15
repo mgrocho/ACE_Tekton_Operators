@@ -33,7 +33,7 @@ spec:
       default: ''
       type: string
   steps:
-    - image: 'default-route-openshift-image-registry.itzroks-662002gtx5-28b9zo-6ccd7f378ae819553d37d5f2ee142bd6-0000.eu-de.containers.appdomain.cloud/cp4i/ace-with-zip'
+    - image: 'image-registry.openshift-image-registry.svc:5000/cp4i/ace-with-zip'
       name: generate-crs
       env:
           - name: INTEGRATION_SERVER_NAME

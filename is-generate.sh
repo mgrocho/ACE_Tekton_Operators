@@ -78,7 +78,7 @@ EOF
 
 oc delete integrationserver ${prefix}-test-database-app
 
-:'
+: '
 cat <<EOF | oc apply -f -
 sdfsapiVersion: appconnect.ibm.com/v1beta1
 kind: IntegrationServer
@@ -132,14 +132,12 @@ metadata:
 spec:
   adminServerSecure: false
   barURL: >-
-    https://github.com/mgrocho/ACE_Tekton_Operators/raw/main/ace-toolkit-code/ExampleDatabaseCompute/BAR/ExampleAppBAR.bar
+    https://github.com/mgrocho/ACE_Tekton_Operators/raw/main/ace-toolkit-code/ExampleDatabaseCompute/BAR/ExampleAppBARprod.bar
   configurations:
     - ${prefix}-github-barauth
-    - mybarname-odbcini
-    - mybarname-generic
-    - mybarname-setdbparms
-    - mybarname-policy
-    - mybarname-serverconf
+    - ${prefix}-db2-odbcini
+    - ${prefix}-extensions
+    - ${prefix}-db2-credentials
   createDashboardUsers: true
   designerFlowsOperationMode: disabled
   enableMetrics: true
